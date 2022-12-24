@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NumeroDons{% endblock %}
+
+{% block body %}
+    <h1>NumeroDons</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ numero_don.id }}</td>
+            </tr>
+            <tr>
+                <th>Numero</th>
+                <td>{{ numero_don.numero }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ numero_don.montant }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_numero_dons_index') }}">back to list</a>
+
+    <a href="{{ path('app_numero_dons_edit', {'id': numero_don.id}) }}">edit</a>
+
+    {{ include('numero_dons/_delete_form.html.twig') }}
+{% endblock %}

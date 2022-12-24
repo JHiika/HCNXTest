@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New NumeroDons{% endblock %}
+
+{% block body %}
+    <h1>Create new NumeroDons</h1>
+
+    {{ include('numero_dons/_form.html.twig') }}
+
+    <a href="{{ path('app_numero_dons_index') }}">back to list</a>
+{% endblock %}

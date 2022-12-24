@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NumeroZipcode{% endblock %}
+
+{% block body %}
+    <h1>NumeroZipcode</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ numero_zipcode.id }}</td>
+            </tr>
+            <tr>
+                <th>Numero</th>
+                <td>{{ numero_zipcode.numero }}</td>
+            </tr>
+            <tr>
+                <th>Zipcode</th>
+                <td>{{ numero_zipcode.zipcode }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_numero_zipcode_index') }}">back to list</a>
+
+    <a href="{{ path('app_numero_zipcode_edit', {'id': numero_zipcode.id}) }}">edit</a>
+
+    {{ include('numero_zipcode/_delete_form.html.twig') }}
+{% endblock %}

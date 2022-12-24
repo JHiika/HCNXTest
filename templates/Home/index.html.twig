@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="row">
+    <div class="col-5 my-auto mx-auto">
+        {{ render_chart(donations, {'style':'background-color:#333;'}) }}
+        <hr>
+        {{ render_chart(topTenDonators, {'style':'background-color:#333'}) }}
+    </div>
+    <div class="col-6 mx-auto">
+        {{ render_chart(departements, {'style':'background-color:#333'}) }}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+body {
+    background-color: #333;
+}
+canvas {
+    overflow: auto;
+}
+#dashboard{
+    height:100%!important;
+}
