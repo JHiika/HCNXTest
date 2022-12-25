@@ -27,6 +27,26 @@ class CSVToTable extends Command
         // Read and delete the first line (columns name)
             fgetcsv($csvFile);
 
+        // Alter table to add constraints
+            // Table 1 (Numero_dons)
+                // Connection to DB
+                    $db = new PDO('mysql:host=localhost:3308;dbname=test', 'root', 'root');
+
+                // Request
+                    $stmt = $db->prepare("ALTER TABLE numero_dons ADD CONSTRAINT numero UNIQUE(numero)");
+
+                // Execute the request
+                    $stmt->execute();
+            // Table 2 (Numero_zipcode)
+                // Connection to DB
+                $db = new PDO('mysql:host=localhost:3308;dbname=test', 'root', 'root');
+
+                // Request
+                    $stmt = $db->prepare("ALTER TABLE numero_zipcode ADD CONSTRAINT numerozip UNIQUE(numero, zipcode)");
+
+                // Execute the request
+                    $stmt->execute();
+
         // Loop on each line of CSV
             while (($row = fgetcsv($csvFile, null, ';', '"')) !== FALSE) {
                 // Insert phone numbers and donations amount in the DB table 1 (numero_dons)
@@ -47,8 +67,7 @@ class CSVToTable extends Command
                         $db = new PDO('mysql:host=localhost:3308;dbname=test', 'root', 'root');
 
                     // Create request (If we have a duplicate key, then update the zipcode)
-                        $stmt = $db->prepare("INSERT INTO numero_zipcode (numero, zipcode) VALUES (:val1, :val2)
-                        ON DUPLICATE KEY UPDATE numero = :val1, zipcode= :val2");
+                        $stmt = $db->prepare("INSERT INTO numero_zipcode (numero, zipcode) VALUES (:val1, :val2)");
 
                     // Add values to the request
                         $stmt->bindValue(':val1', $row[2]);
