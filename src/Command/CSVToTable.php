@@ -33,7 +33,7 @@ class CSVToTable extends Command
                     $db = new PDO('mysql:host=localhost:3308;dbname=test', 'root', 'root');
 
                     // Create request (If we have a duplicate key, then add all amounts and update)
-                        $stmt = $db->prepare("INSERT INTO numero_dons_3 (numero, montant) VALUES (:val1, :val2)
+                        $stmt = $db->prepare("INSERT INTO numero_dons (numero, montant) VALUES (:val1, :val2)
                         ON DUPLICATE KEY UPDATE montant = montant+:val2");
 
                     // Add values to the request
@@ -47,7 +47,7 @@ class CSVToTable extends Command
                         $db = new PDO('mysql:host=localhost:3308;dbname=test', 'root', 'root');
 
                     // Create request (If we have a duplicate key, then update the zipcode)
-                        $stmt = $db->prepare("INSERT INTO numero_zipcode_3 (numero, zipcode)
+                        $stmt = $db->prepare("INSERT INTO numero_zipcode (numero, zipcode)
                         VALUES (:val1, :val2)
                         ON DUPLICATE KEY UPDATE id = id;");
 
