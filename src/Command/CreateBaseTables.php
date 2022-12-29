@@ -52,7 +52,7 @@ class CreateBaseTables extends Command
                 $db = new PDO('mysql:host=localhost:3308;dbname=test', 'root', 'root');
 
                 // Request
-                    $stmt = $db->prepare("ALTER TABLE numero_dons_3 ADD CONSTRAINT numero UNIQUE(numero)");
+                    $stmt = $db->prepare("ALTER TABLE numero_dons ADD CONSTRAINT numero UNIQUE(numero)");
 
                 // Execute the request
                     $stmt->execute();
@@ -61,7 +61,7 @@ class CreateBaseTables extends Command
                 $db = new PDO('mysql:host=localhost:3308;dbname=test', 'root', 'root');
 
                 // Request
-                    $stmt = $db->prepare("ALTER TABLE numero_zipcode_3 ADD CONSTRAINT numerozip UNIQUE(numero, zipcode)");
+                    $stmt = $db->prepare("ALTER TABLE numero_zipcode ADD CONSTRAINT numerozip UNIQUE(numero, zipcode)");
 
                 // Execute the request
                     $stmt->execute();
