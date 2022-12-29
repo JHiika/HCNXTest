@@ -24,5 +24,9 @@ services:
         class: App\Command\CSVToTable
         tags:
             - { name: consol.command}
+    app.createbasetables:
+        class: App\Command\CreateBaseTables
+        tags:
+            - { name: consol.command}
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
